@@ -12,14 +12,18 @@ class App {
         System.out.println("books: " + books);
         System.out.println("dictionary: " + dictionary);
         List<Map<T, T>> result = new ArrayList();
-        for (Map<T,T> book: books) {
+        for (Map<T, T> book: books) {
             boolean needToAddToResult = true;
             for (Map.Entry<T, T> recordOfDictionary: dictionary.entrySet()) {
-                if (book.containsKey(recordOfDictionary.getKey())){
+                if (book.containsKey(recordOfDictionary.getKey())) {
                     needToAddToResult = book.get(recordOfDictionary.getKey()).equals(recordOfDictionary.getValue());
-                    System.out.println("compare:" + book.get(recordOfDictionary.getKey()) + " and " + recordOfDictionary.getValue() + " result: " + needToAddToResult);
+                    System.out.println("compare:"
+                            + book.get(recordOfDictionary.getKey())
+                            + " and "
+                            + recordOfDictionary.getValue()
+                            + " result: " + needToAddToResult);
                 }
-                if (needToAddToResult == false) {
+                if (!needToAddToResult) {
                     break;
                 }
             }
